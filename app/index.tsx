@@ -1,24 +1,35 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet } from "react-native";
 import { Link } from "expo-router";
-import logo from "../assets/me.png";
+import ThemedLogo from "../components/themed-logo";
+import ThemedView from "../components/themed-view";
+import Spacer from "../components/spacer";
+import ThemedText from "../components/themed-text";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Image source={logo} style={styles.logo} />
+    <ThemedView style={styles.container}>
+      <ThemedLogo />
 
-      <Text style={styles.title}>Hello World!</Text>
-      <Text style={{ marginTop: 10, marginBottom: 30 }}>
-        First react native app
-      </Text>
+      <Spacer height={20} />
 
-      <View style={styles.card}>
-        <Text>This is a card</Text>
-      </View>
+      <ThemedText style={styles.title} title={true}>
+        Hello World!
+      </ThemedText>
 
-      <Link href="/about" style={styles.link}>About</Link>
-      <Link href="/contact" style={styles.link}>Contact</Link>
-    </View>
+      <Spacer height={10} />
+
+      <ThemedText style={styles.title}>First react native app</ThemedText>
+
+      <Spacer />
+
+      <Link href="/about">
+        <ThemedText style={styles.link}>About Page</ThemedText>
+      </Link>
+
+      <Link href="/contact">
+        <ThemedText style={styles.link}>Contact Page</ThemedText>
+      </Link>
+    </ThemedView>
   );
 };
 
@@ -34,20 +45,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
   },
-  card: {
-    backgroundColor: "#eee",
-    padding: 20,
-    borderRadius: 5,
-    boxShadow: "4px 4px rgba(0, 0, 0, 0.1)",
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginVertical: 20,
-  },
   link: {
     marginVertical: 10,
     borderBottomWidth: 1,
-  }
+  },
 });
